@@ -5,7 +5,7 @@
 <script>
 $(document).ready(function(){
     $("button").click(function(){
-        $.get("http://api.fixer.io/latest", function(data, status){
+        $.get("https://api.fixer.io/latest", function(data, status){
             alert("Base: " + data['base'] +
             "\nAUD: " + data['rates']['AUD'] +
             "\nUSD: " + data['rates']['USD'] +
