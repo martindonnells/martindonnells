@@ -128,8 +128,8 @@ var fname = "#FirstName";
        .data(teams)
        .enter()
        .append("option")
-	.text(function (d) { return d[i]; })
-       .attr("value", function (d) { return d[i]; });
+	.text(function (data) { return d; })
+       .attr("value", function (data) { return d; });
 
 
 authb = "https://www.mysportsfeeds.com/api/feed/pull/nba/2016-2017/cumulative_player_stats.csv"
