@@ -127,8 +127,8 @@ var fname = "#FirstName";
 	var options = dropDown.selectAll("option")
        .data(teams)
        .enter()
-       .append("option");
-	   .text(function (d) { return d[i]; })
+       .append("option")
+	.text(function (d) { return d[i]; })
        .attr("value", function (d) { return d[i]; });
 
 
