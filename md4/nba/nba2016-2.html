@@ -55,9 +55,17 @@
   top: 100%;
   left: 0;
 }
+p .top-nav-link {
+  float: left;
+}
 </style>
   </head>
   <body>
+    <div id="top-nav-nba">
+	    <p class="top-nav-link nba-2017">2017</p>
+	    <p class="top-nav-link nba-2016">2016</p>
+	    <p class="top-nav-link nba-2015">2015</p>
+	  </div>
     <div id="scatter"></div>
     
     <div id="filter">
@@ -153,10 +161,10 @@ var fname = "#FirstName";
 
     teams = ["76ers","Bucks","Bulls","Cavaliers","Celtics","Clippers","Grizzlies","Hawks","Heat","Hornets","Jazz","Kings","Knicks","Lakers","Magic","Mavericks","Nets","Nuggets","Pacers","Pelicans","Pistons","Raptors","Rockets","Spurs","Suns","Thunder","Timberwolves","Trail Blazers","Warriors","Wizards"]
 
-   var dropDown = d3.select("#filter")
+var dropDown = d3.select("#filter")
 					
 					
-	var options = dropDown.selectAll("option")
+var options = dropDown.selectAll("option")
 
 
 
