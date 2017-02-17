@@ -354,15 +354,15 @@ dropDown.on("change", function() {
       display = this.checked ? "none" : "inline";
 
       if(selected == 'All Teams'){
-        svg.selectAll(".circles")
+        svg.selectAll(".dot")
             .attr("display", display);
       }
       else{
-        svg.selectAll(".circles")
+        svg.selectAll(".dot")
             .filter(function(d) {return selected != d[team];})
             .attr("display", displayOthers);
             
-        svg.selectAll(".circles")
+        svg.selectAll(".dot")
             .filter(function(d) {return selected == d[team];})
             .attr("display", display);
       }
