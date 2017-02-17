@@ -167,11 +167,8 @@ var fname = "#FirstName";
     teams = ["76ers","Bucks","Bulls","Cavaliers","Celtics","Clippers","Grizzlies","Hawks","Heat","Hornets","Jazz","Kings","Knicks","Lakers","Magic","Mavericks","Nets","Nuggets","Pacers","Pelicans","Pistons","Raptors","Rockets","Spurs","Suns","Thunder","Timberwolves","Trail Blazers","Warriors","Wizards"]
 
 var dropDown = d3.select("#filter")
-					
-					
+									
 var options = dropDown.selectAll("option")
-
-
 
 authb = "https://www.mysportsfeeds.com/api/feed/pull/nba/2016-2017/cumulative_player_stats.csv"
 
@@ -341,10 +338,6 @@ d3.csv("nba2016.csv", function(data) {
     return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
   }
 
-		var dropDown = d3.select("#filter")
-					
-					
-		var options = dropDown.selectAll("option")
 	
   dropDown.on("change", function() {
       var selected = this.value;
