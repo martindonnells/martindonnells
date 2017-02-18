@@ -73,8 +73,8 @@ a {
 	  </div>
     <div id="scatter"></div>
 	  
-    <div id="filter2">
-    <b>Countries by Region:</b>
+    <div id="filter">
+    <b>Teams:</b>
 </div>
     	
 
@@ -133,7 +133,7 @@ var fname = "#FirstName";
 
     teams = ["76ers","Bucks","Bulls","Cavaliers","Celtics","Clippers","Grizzlies","Hawks","Heat","Hornets","Jazz","Kings","Knicks","Lakers","Magic","Mavericks","Nets","Nuggets","Pacers","Pelicans","Pistons","Raptors","Rockets","Spurs","Suns","Thunder","Timberwolves","Trail Blazers","Warriors","Wizards"]
 
-  var dropDown = d3.select("#filter2").append("select")
+  var dropDown = d3.select("#filter").append("select")
                     .attr("name", "nba-team-list");
 
   var options = dropDown.selectAll("option")
@@ -150,7 +150,6 @@ d3.csv("nba2016.csv", function(data) {
     d["Ast"] = +d["#AstPerGame"];
     d["Reb"] = +d["#RebPerGame"];
     d["Plusmin"] = +d["#PlusMinusPerGame"]
-    console.log(data)
   });
 
 
