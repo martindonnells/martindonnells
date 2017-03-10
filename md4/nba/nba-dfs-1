@@ -123,9 +123,9 @@ var fname = "#FirstName";
     tov = "#TovPerGame";
     minsec = "MinSecondsPerGame";
 
-    xCat = plusmin,
-    yCat = "Pts"
-    rCat = "Ast",
+    xCat = "Fantasy Points",
+    yCat = "Salary"
+    rCat = "Fantasy Points",
     colorCat = "#Team Name";
 
     //Array of Teams to be used by dropdown selector
@@ -143,12 +143,10 @@ var fname = "#FirstName";
   options.text(function (d) { return d; })
        .attr("value", function (d) { return d; });
 
-d3.csv("nba2016.csv", function(data) {
+d3.csv("NBA-DFS.csv", function(data) {
   data.forEach(function(d) {
-    d["Pts"] = +d["#PtsPerGame"];
-    d["Ast"] = +d["#AstPerGame"];
-    d["Reb"] = +d["#RebPerGame"];
-    d["Plusmin"] = +d["#PlusMinusPerGame"]
+    d["Fantasy Points"] = +d["#Fantasy Points"];
+    d["Salary"] = +d["#Salary"];
   });
 
 
@@ -185,9 +183,7 @@ d3.csv("nba2016.csv", function(data) {
         return d[fname] + " " + d[lname] + "<br>" +
                d[teamcity] + " " + d[team]+ "<br>" +
                xCat + ": " + d[xCat] + "<br>" + 
-               yCat + ": " + d[yCat]+ "<br>" + 
-               "Reb" + ": " + d["Reb"]+ "<br>" +
-               "+/-" + ": " + d["Plusmin"];
+               yCat + ": " + d[yCat]+ "<br>"
       });
 
   var zoomBeh = d3.behavior.zoom()
