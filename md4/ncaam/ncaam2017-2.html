@@ -193,12 +193,24 @@ d3.csv("ncaam2017-tourneyTeams.csv", function(data) {
       .attr("class", "d3-tip")
       .offset([-10, 0])
       .html(function(d) {
-        return "Team: " + d["Team"] + " " + d[lname] + "<br>" +
-               d[teamcity] + " " + d[team]+ "<br>" +
-               xCat + ": " + d[xCat] + "<br>" + 
-               yCat + ": " + d[yCat]+ "<br>" + 
-               "Reb" + ": " + d["Reb"]+ "<br>" +
-               "+/-" + ": " + d["Plusmin"];
+        return 	"Team: " + d["Team"] + "<br>" +
+		"Record: " + d["W-L"] + "<br>" +
+	      	"Seed: " + d["Seed"] + "<br>" +
+		"Conference: " + d["Conf"] + "<br>" +
+		"Overall Efficiency Rank: " + d["Rank-ID"] + "<br>" +
+		"Offense Efficiency Rank: " + d["AdjO-Rank"] + "<br>" +
+		"Defensive Efficiency Rank: " + d["AdjD-Rank"] + "<br>" +
+		"Tempo Rank: " + d["AdjT-rank"] + "<br>" +
+		"Luck Rank: " + d["Luck-rank"] + "<br>" +
+		"Strength Of Schedule Rank: " + d["SOS-AdjEM-rank"] + "<br>" +
+		"Non-Conf SOS: " + d["NCSOS-AdjEM-rank"];
+		
+	      
+             //  d[teamcity] + " " + d[team]+ "<br>" +
+             //  xCat + ": " + d[xCat] + "<br>" + 
+             //  yCat + ": " + d[yCat]+ "<br>" + 
+             //  "Reb" + ": " + d["Reb"]+ "<br>" +
+              // "+/-" + ": " + d["Plusmin"];
       });
 
   var zoomBeh = d3.behavior.zoom()
