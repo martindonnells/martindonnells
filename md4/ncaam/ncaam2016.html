@@ -200,7 +200,7 @@ d3.csv("log2016.csv", function(data) {
   var zoomBeh = d3.behavior.zoom()
       .x(x)
       .y(y)
-      .scaleExtent([0, 150])
+      .scaleExtent([70, 150])
       .on("zoom", zoom);
 
   var svg = d3.select("#scatter")
