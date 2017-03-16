@@ -196,11 +196,11 @@ d3.csv("log2016.csv", function(data) {
 		
 	      
       });
-
-  var zoomBeh = d3.behavior.zoom()
+ 
+  var zoomBeh = d3.behavior.zoom().translate([100,50]).scale(.5);
       .x(x)
       .y(y)
-      .scaleExtent([70, 150])
+      .scaleExtent([0, 500])
       .on("zoom", zoom);
 
   var svg = d3.select("#scatter")
