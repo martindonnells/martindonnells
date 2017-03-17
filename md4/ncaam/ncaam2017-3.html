@@ -165,10 +165,8 @@ d3.csv("ncaam2017-tourneyTeams.csv", function(data) {
 
   var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
       xMin = d3.min(data, function(d) { return d[xCat]; }),
-      xMin = xMin > 0 ? 0 : xMin,
       yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
       yMin = d3.min(data, function(d) { return d[yCat]; }),
-      yMin = yMin > 0 ? 0 : yMin;
       rMax = d3.max(data, function(d) { return d[rCat]; }) * 1.05,
       rMin = d3.min(data, function(d) { return d[rCat]; }),
       rMin = rMin > 0 ? 0 : rMin;
@@ -279,7 +277,7 @@ d3.csv("ncaam2017-tourneyTeams.csv", function(data) {
       .data(data)
     .enter().append("circle")
       .classed("dot", true)
-      .attr("r", function (d) { return (50 *((d[rCat] - rMin)/(rMax - xMin))/ Math.PI); })
+      .attr("r", function (d) { return (50 *((d[rCat] - rMin)/(rMax - rMin))/ Math.PI); })
       .attr("transform", transform)
     //  .style("fill", function(d) { return color(d[team]);
   .style("fill", function(d) { return color(d[colorCat]); })
