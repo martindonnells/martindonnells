@@ -92,10 +92,11 @@ var margin = { top: 50, right: 300, bottom: 50, left: 50 },
     outerWidth = 1100*1.2,
     outerHeight = 600*1.2,
     width = outerWidth - margin.left - margin.right,
-    height = outerHeight - margin.top - margin.bottom;
+    height = outerHeight - margin.top - margin.bottom,
+    pady = margin.right;
 
 var x = d3.scale.linear()
-    .range([(width+30),0]).nice();
+    .range([(width+pady),0]).nice();
 
 var y = d3.scale.linear()
     .range([height,0]).nice();
