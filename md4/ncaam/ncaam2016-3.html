@@ -84,32 +84,18 @@ var margin = { top: 50, right: 300, bottom: 50, left: 50 },
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 var x = d3.scale.linear()
-    .domain([70,130])
+   // .domain([70,130])
     .range([width,0]).nice();
 var y = d3.scale.linear()
-    .domain([70,130])
+  //  .domain([70,130])
     .range([height,0]).nice();
     //Set variables for the fields of data that you want to use
-var fname = "#FirstName";
-    lname = "#LastName";
-    teamcity = "#Team City"
-    team = "#Team Name";
-    plusmin = "#PlusMinusPerGame";
-    reb = ["#RebPerGame"];
-    tov = ["#TovPerGame"];
-    minsec = ["MinSecondsPerGame"];
-    colorCat = "#Team Name";
-    fname = "#FirstName";
-    lname = "#LastName";
-    team = "#Team Name";
-    plusmin = "#PlusMinusPerGame";
-    reb = "#RebPerGame";
-    tov = "#TovPerGame";
-    minsec = "MinSecondsPerGame";
+
     xCat = "AdjD",
     yCat = "AdjO"
     rCat = "AdjEM",
     colorCat = "Conference";
+	    
     //Array of Teams to be used by dropdown selector
     confs = ["WCC", "BE", "ACC", "B12", "SEC", "P12", "B10", "Amer", "A10", "MVC", "CUSA", "MWC", "Ivy", "CAA", "AE", "SC", "Pat", "BSth", "WAC", "ASun", "MAAC", "MAC", "SB", "Horz", "OVC", "BSky", "MEAC", "Slnd", "Sum", "SWAC", "NEC", "BW"]
   var dropDown = d3.select("#filter").append("select")
@@ -128,16 +114,14 @@ d3.csv("log2016.csv", function(data) {
     d["OppEM"] = +d["OppEM"]
   });
   var xMax = d3.max(data, function(d) { return d[xCat]; }) * 1.05,
-      xMin = d3.min(data, function(d) { return d[xCat]; }),
-      xMin = xMin > 0 ? 0 : xMin,
-      yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
-      yMin = d3.min(data, function(d) { return d[yCat]; }),
-      yMin = yMin > 0 ? 0 : yMin;
-      rMax = d3.max(data, function(d) { return d[rCat]; }) * 1.05,
+      xMin = d3.min(data, function(d) { return d[xCat]; });
+ var  yMax = d3.max(data, function(d) { return d[yCat]; }) * 1.05,
+      yMin = d3.min(data, function(d) { return d[yCat]; });
+ var  rMax = d3.max(data, function(d) { return d[rCat]; }) * 1.05,
       rMin = d3.min(data, function(d) { return d[rCat]; }),
       rMin = rMin > 0 ? 0 : rMin;
- // x.domain([xMin, xMax]);
- // y.domain([yMin, yMax]);
+ x.domain([xMin, xMax]);
+ y.domain([yMin, yMax]);
   var xAxis = d3.svg.axis()
       .scale(x)
       .orient("bottom")
