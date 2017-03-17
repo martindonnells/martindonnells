@@ -164,10 +164,10 @@ d3.csv("ncaam2017-tourneyTeams.csv", function(data) {
   });
 
 
-  var xMax = d3.max(data, function(d) { return d[xCat]; })*0.98,
-      xMin = d3.min(data, function(d) { return d[xCat]; })*0.98,
+  var xMax = d3.max(data, function(d) { return d[xCat]; })*0.97,
+      xMin = d3.min(data, function(d) { return d[xCat]; })*0.97,
       yMax = d3.max(data, function(d) { return d[yCat]; })*1.03,
-      yMin = d3.min(data, function(d) { return d[yCat]; })*0.98,
+      yMin = d3.min(data, function(d) { return d[yCat]; })*0.96,
       rMax = d3.max(data, function(d) { return d[rCat]; }),
       rMin = d3.min(data, function(d) { return d[rCat]; }),
       rMin = rMin > 0 ? 0 : rMin;
