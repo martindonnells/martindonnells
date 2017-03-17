@@ -206,7 +206,7 @@ d3.csv("log2016.csv", function(data) {
       .data(data)
     .enter().append("circle")
       .classed("dot", true)
-      .attr("r", function (d) { return (50 *((d[rCat] - rMin)/(rMax - xMin))/ Math.PI); })
+      .attr("r", function (d) { return (50 *((d[rCat] - rMin)/(rMax - rMin))/ Math.PI); })
       .attr("transform", transform)
     //  .style("fill", function(d) { return color(d[team]);
   .style("fill", function(d) { return color(d[colorCat]); })
