@@ -196,12 +196,6 @@ d3.csv("log2016.csv", function(data) {
 		
 	      
       });
- 
-  var zoomBeh = d3.behavior.zoom().translate([100,50]).scale(.5)
-      .x(x)
-      .y(y)
-      .scaleExtent([0, 500])
-      .on("zoom", zoom);
 
   var svg = d3.select("#scatter")
     .append("svg")
@@ -209,7 +203,6 @@ d3.csv("log2016.csv", function(data) {
       .attr("height", outerHeight)
     .append("g")
       .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-      .call(zoomBeh);
 
   svg.call(tip);
 
@@ -294,8 +287,6 @@ d3.csv("log2016.csv", function(data) {
     xMax = d3.max(data, function(d) { return d[xCat]; });
     xMin = d3.min(data, function(d) { return d[xCat]; });
 
-    zoomBeh.x(x.domain([xMin, xMax])).y(y.domain([yMin, yMax]));
-
     var svg = d3.select("#scatter").transition();
 
     svg.select(".x.axis").duration(750).call(xAxis).select(".label").text(xCat);
@@ -303,13 +294,6 @@ d3.csv("log2016.csv", function(data) {
     objects.selectAll(".dot").transition().duration(1000).attr("transform", transform);
   }
 
-  function zoom() {
-    svg.select(".x.axis").call(xAxis);
-    svg.select(".y.axis").call(yAxis);
-
-    svg.selectAll(".dot")
-        .attr("transform", transform);
-  }
 
   function transform(d) {
     return "translate(" + x(d[xCat]) + "," + y(d[yCat]) + ")";
