@@ -84,8 +84,10 @@ var margin = { top: 50, right: 300, bottom: 50, left: 50 },
     width = outerWidth - margin.left - margin.right,
     height = outerHeight - margin.top - margin.bottom;
 var x = d3.scale.linear()
+    .domain([70,130])
     .range([width,0]).nice();
 var y = d3.scale.linear()
+    .domain([70,130])
     .range([height,0]).nice();
     //Set variables for the fields of data that you want to use
 var fname = "#FirstName";
@@ -134,8 +136,8 @@ d3.csv("log2016.csv", function(data) {
       rMax = d3.max(data, function(d) { return d[rCat]; }) * 1.05,
       rMin = d3.min(data, function(d) { return d[rCat]; }),
       rMin = rMin > 0 ? 0 : rMin;
-  x.domain([xMin, xMax]);
-  y.domain([yMin, yMax]);
+ // x.domain([xMin, xMax]);
+ // y.domain([yMin, yMax]);
   var xAxis = d3.svg.axis()
       .scale(x)
       .orient("bottom")
