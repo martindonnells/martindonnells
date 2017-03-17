@@ -96,7 +96,7 @@ var margin = { top: 50, right: 50, bottom: 50, left: 50 },
     padding = 20;
 
 var x = d3.scale.linear()
-    .range([width-padding,padding]).nice();
+    .range([width-padding * 2,padding]).nice();
 
 var y = d3.scale.linear()
     .range([height-padding,padding]).nice();
@@ -234,7 +234,7 @@ d3.csv("ncaam2017-tourneyTeams.csv", function(data) {
 
   svg.append("g")
       .classed("x axis", true)
-      .attr("transform", "translate(0," + height + ")")
+      .attr("transform", "translate(0," + height-padding + ")")
       .call(xAxis)
     .append("text")
       .classed("label", true)
@@ -263,16 +263,16 @@ d3.csv("ncaam2017-tourneyTeams.csv", function(data) {
       .classed("axisLine hAxisLine", true)
       .attr("x1", 0)
       .attr("y1", 0)
-      .attr("x2", width-padding)
+      .attr("x2", width)
       .attr("y2", 0)
-      .attr("transform", "translate(0," + height + ")");
+      .attr("transform", "translate(0," + height-padding + ")");
 
   objects.append("svg:line")
       .classed("axisLine vAxisLine", true)
       .attr("x1", 0)
       .attr("y1", 0)
       .attr("x2", 0)
-      .attr("y2", height-padding);
+      .attr("y2", height);
 
   objects.selectAll(".dot")
       .data(data)
