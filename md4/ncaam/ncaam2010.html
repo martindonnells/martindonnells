@@ -1,27 +1,31 @@
- <html>
+<html>
   <head>
     <meta charset="utf-8">
-    <title>NBA Player Stats: Points, Assists, Plus/Minus</title>
+    <title>2010 NCAA Tournament - Historical Champions</title>
 <style type="text/css">
     rect {
   fill: transparent;
   shape-rendering: crispEdges;
 }
+
 .axis path,
 .axis line {
   fill: none;
   stroke: rgba(0, 0, 0, 0.1);
   shape-rendering: crispEdges;
 }
+
 .axisLine {
   fill: none;
   shape-rendering: crispEdges;
   stroke: rgba(0, 0, 0, 0.5);
   stroke-width: 2px;
 }
+
 .dot {
   fill-opacity: .5;
 }
+
 .d3-tip {
   line-height: 1;
   font-weight: bold;
@@ -30,6 +34,7 @@
   color: #fff;
   border-radius: 2px;
 }
+
 /* Creates a small triangle extender for the tooltip */
 .d3-tip:after {
   box-sizing: border-box;
@@ -42,6 +47,7 @@
   position: absolute;
   text-align: center;
 }
+
 /* Style northward tooltips differently */
 .d3-tip.n:after {
   margin: -1px 0 0 0;
@@ -57,87 +63,22 @@ a {
   padding-left: 25px;
 }
 </style>
- <html>
-  <head>
-    <meta charset="utf-8">
-    <title>NBA Player Stats: Points, Assists, Plus/Minus</title>
-<style type="text/css">
-    rect {
-  fill: transparent;
-  shape-rendering: crispEdges;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: rgba(0, 0, 0, 0.1);
-  shape-rendering: crispEdges;
-}
-
-.axisLine {
-  fill: none;
-  shape-rendering: crispEdges;
-  stroke: rgba(0, 0, 0, 0.5);
-  stroke-width: 2px;
-}
-
-.dot {
-  fill-opacity: .5;
-}
-
-.d3-tip {
-  line-height: 1;
-  font-weight: bold;
-  padding: 12px;
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  border-radius: 2px;
-}
-
-/* Creates a small triangle extender for the tooltip */
-.d3-tip:after {
-  box-sizing: border-box;
-  display: inline;
-  font-size: 10px;
-  width: 100%;
-  line-height: 1;
-  color: rgba(0, 0, 0, 0.8);
-  content: "\25BC";
-  position: absolute;
-  text-align: center;
-}
-
-/* Style northward tooltips differently */
-.d3-tip.n:after {
-  margin: -1px 0 0 0;
-  top: 100%;
-  left: 0;
-}
-#top-nav-nba {
-  width:800px; 
-  margin:0 auto;} 
-a {
-  float: left;
-  text-align: center;
-  padding-left: 25px;
-}
-</style>
   </head>
   <body>
     <div id="top-nav-nba">
-      <a class="top-nav-link nba-2017" href="google.com">2017</a>
-      <a class="top-nav-link nba-2016" href="google.com">2016</a>
-      <a class="top-nav-link nba-2015" href="google.com">2015</a>
-    </div>
+	    <a class="top-nav-link nba-2017" href="google.com">2017</a>
+	    <a class="top-nav-link nba-2016" href="google.com">2016</a>
+	    <a class="top-nav-link nba-2015" href="google.com">2015</a>
+	  </div>
     <div id="scatter"></div>
-    
+	  
     <div id="filter">
     <b>Conference:</b>
 </div>
-      
+    	
 
-  <script type="text/javascript" src="d3.v3.min.js" charset="utf-8"></script>
-  <script type="text/javascript" src="d3.tip.v0.6.3.js"></script>
+	<script type="text/javascript" src="d3.v3.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="d3.tip.v0.6.3.js"></script>
 <!-- <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
      <script src="https://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
   -->
@@ -163,41 +104,10 @@ var y = d3.scale.linear()
 
     //Set variables for the fields of data that you want to use
 
-var fname = "#FirstName";
-    lname = "#LastName";
-    teamcity = "#Team City"
-    team = "#Team Name";
-
-var dim1 = "Taco";
-var dim1 = "Taco";
-var dim1 = "Taco";
-var dim1 = "Taco";
-var dim1 = "Taco";
-var dim1 = "Taco";
-var dim1 = "Taco";
-var dim1 = "Taco";
-var dim1 = "Taco";
-var dim1 = "Taco";
-
-
-    plusmin = "#PlusMinusPerGame";
-    reb = ["#RebPerGame"];
-    tov = ["#TovPerGame"];
-    minsec = ["MinSecondsPerGame"];
-
-    colorCat = "#Team Name";
-    fname = "#FirstName";
-    lname = "#LastName";
-    team = "#Team Name";
-    plusmin = "#PlusMinusPerGame";
-    reb = "#RebPerGame";
-    tov = "#TovPerGame";
-    minsec = "MinSecondsPerGame";
-
     xCat = "AdjD",
     yCat = "AdjO"
     rCat = "AdjEM",
-    colorCat = "Conf";
+    colorCat = "Conference";
 
     //Array of Teams to be used by dropdown selector
 
@@ -219,14 +129,14 @@ d3.csv("log2010.csv", function(data) {
     d["AdjEM"] = +d["AdjEM"];
     d["AdjO"] = +d["AdjO"];
     d["AdjD"] = +d["AdjD"];
-    d["SOS-AdjEM"] = +d["SOS-AdjEM"]
+    d["OppEM"] = +d["OppEM"]
   });
 
 
-  var xMax = d3.max(data, function(d) { return d[xCat]; })*0.97,
-      xMin = d3.min(data, function(d) { return d[xCat]; })*0.97,
-      yMax = d3.max(data, function(d) { return d[yCat]; })*1.03,
-      yMin = d3.min(data, function(d) { return d[yCat]; })*1.03,
+  var xMax = d3.max(data, function(d) { return d[xCat]; })*0.98,
+      xMin = d3.min(data, function(d) { return d[xCat]; })*0.98,
+      yMax = d3.max(data, function(d) { return d[yCat]; })*1.02,
+      yMin = d3.min(data, function(d) { return d[yCat]; })*1.02,
       rMax = d3.max(data, function(d) { return d[rCat]; }),
       rMin = d3.min(data, function(d) { return d[rCat]; }),
       rMin = rMin > 0 ? 0 : rMin;
@@ -251,24 +161,17 @@ d3.csv("log2010.csv", function(data) {
       .attr("class", "d3-tip")
       .offset([-10, 0])
       .html(function(d) {
-        return  "Team: " + d["Team"] + "<br>" +
-    "Record: " + d["W-L"] + "<br>" +
-          "Seed: " + d["Seed"] + "<br>" +
-    "Conference: " + d["Conf"] + "<br>" +
-    "Overall Efficiency Rank: " + d["Rank-ID"] + "<br>" +
-    "Offense Efficiency Rank: " + d["AdjO-Rank"] + "<br>" +
+        return  "Team: " + d["Team_Name"] + "<br>" +
+    "Record: " + d["Record"] + "<br>" +
+   "Seed: " + d["Seed"] + "<br>" +
+    "Conference: " + d["Conference"] + "<br>" +
+    "Overall Efficiency Rank: " + d["EM_Rank"] + "<br>" +
+    "Offense Efficiency Rank: " + d["AdjO-rank"] + "<br>" +
     "Defensive Efficiency Rank: " + d["AdjD-rank"] + "<br>" +
     "Tempo Rank: " + d["AdjT-rank"] + "<br>" +
     "Luck Rank: " + d["Luck-rank"] + "<br>" +
-    "Strength Of Schedule Rank: " + d["SOS-AdjEM-rank"] + "<br>" +
-    "Non-Conf SOS: " + d["NCSOS-AdjEM-rank"];
-    
-        
-             //  d[teamcity] + " " + d[team]+ "<br>" +
-             //  xCat + ": " + d[xCat] + "<br>" + 
-             //  yCat + ": " + d[yCat]+ "<br>" + 
-             //  "Reb" + ": " + d["Reb"]+ "<br>" +
-              // "+/-" + ": " + d["Plusmin"];
+    "Strength Of Schedule Rank: " + d["OppEM"] + "<br>" +
+    "Non-Conf SOS: " + d["OppEM-rank"];
       });
 
   var zoomBeh = d3.behavior.zoom()
@@ -390,7 +293,7 @@ d3.csv("log2010.csv", function(data) {
   }
 
 
-  
+	
 dropDown.on("change", function() {
       var selected = this.value;
       displayOthers = this.checked ? "inline" : "none";
@@ -402,18 +305,18 @@ dropDown.on("change", function() {
       }
       else{
         svg.selectAll(".dot")
-            .filter(function(d) {return selected != d["Conf"];})
+            .filter(function(d) {return selected != d["Conference"];})
             .attr("display", displayOthers);
             
         svg.selectAll(".dot")
-            .filter(function(d) {return selected == d["Conf"];})
+            .filter(function(d) {return selected == d["Conference"];})
             .attr("display", display);
       }
-  }); 
-  
-  
-  
-  
+  });	
+	
+	
+	
+	
   });
 </script>
 
