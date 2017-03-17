@@ -167,14 +167,14 @@ d3.csv("ncaam2017-tourneyTeams.csv", function(data) {
   var xMax = d3.max(data, function(d) { return d[xCat]; }),
       xMin = d3.min(data, function(d) { return d[xCat]; })*0.98,
       yMax = d3.max(data, function(d) { return d[yCat]; })*1.03,
-      yMin = d3.min(data, function(d) { return d[yCat]; }),
+      yMin = d3.min(data, function(d) { return d[yCat]; })*0.98,
       rMax = d3.max(data, function(d) { return d[rCat]; }),
       rMin = d3.min(data, function(d) { return d[rCat]; }),
       rMin = rMin > 0 ? 0 : rMin;
 
 
   x.domain([xMin,xMax]);
-  y.domain([yMin, yMax]);
+  y.domain([yMin,yMax]);
 
   var xAxis = d3.svg.axis()
       .scale(x)
