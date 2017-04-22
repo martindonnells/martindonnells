@@ -143,7 +143,7 @@ var fname = "#FirstName";
   options.text(function (d) { return d; })
        .attr("value", function (d) { return d; });
 
-d3.csv("nba2016.csv", function(data) {
+d3.csv("nba201617.csv", function(data) {
   data.forEach(function(d) {
     d["Pts"] = +d["#PtsPerGame"];
     d["Ast"] = +d["#AstPerGame"];
