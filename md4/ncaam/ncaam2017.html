@@ -155,7 +155,7 @@ var dim1 = "Taco";
   options.text(function (d) { return d; })
        .attr("value", function (d) { return d; });
 
-d3.csv("log2018.csv", function(data) {
+d3.csv("ncaam2017-tourneyTeams.csv", function(data) {
   data.forEach(function(d) {
     d["AdjEM"] = +d["AdjEM"];
     d["AdjO"] = +d["AdjO"];
