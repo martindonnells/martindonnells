@@ -238,7 +238,7 @@ d3.csv("log2018.csv", function(data) {
       .attr("x", width)
       .attr("y", margin.bottom - 10)
       .style("text-anchor", "end")
-      .text(xCat);
+      .text("Defensive Efficiency");
 
   svg.append("g")
       .classed("y axis", true)
@@ -249,7 +249,7 @@ d3.csv("log2018.csv", function(data) {
       .attr("y", -margin.left)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text(yCat);
+      .text("Offensive Efficiency");
 
   var objects = svg.append("svg")
       .classed("objects", true)
