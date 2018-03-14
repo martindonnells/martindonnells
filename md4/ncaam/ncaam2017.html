@@ -251,7 +251,7 @@ d3.csv("ncaam2017-tourneyTeams.csv", function(data) {
       .classed("label", true)
       .attr("x", width)
       .attr("y", margin.bottom - 10)
-      .style("text-anchor", "middle")
+      .style("text-anchor", "start")
       .text("Defensive Efficiency");
 
   svg.append("g")
@@ -262,7 +262,7 @@ d3.csv("ncaam2017-tourneyTeams.csv", function(data) {
       .attr("transform", "rotate(-90)")
       .attr("y", -margin.left)
       .attr("dy", ".71em")
-      .style("text-anchor", "middle")
+      .style("text-anchor", "start")
       .text("Defensive Efficiency");
 
   var objects = svg.append("svg")
