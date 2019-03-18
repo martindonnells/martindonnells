@@ -191,10 +191,10 @@ d3.csv("log2019.csv", function(data) {
       .offset([-10, 0])
       .html(function(d) {
         return 	"Team: " + d["Team"] + "<br>" +
-		"Record: " + d["W-L"] + "<br>" +
+		"Record: " + d["Record"] + "<br>" +
 	      	"Seed: " + d["Seed"] + "<br>" +
-		"Conference: " + d["Conf"] + "<br>" +
-		"Overall Efficiency Rank: " + d["Rank-ID"] + "<br>" +
+		"Conference: " + d["Conference"] + "<br>" +
+		"Overall Efficiency Rank: " + d["EM_Rank"] + "<br>" +
 		"Offense Efficiency Rank: " + d["AdjO-Rank"] + "<br>" +
 		"Defensive Efficiency Rank: " + d["AdjD-rank"] + "<br>" +
 		"Tempo Rank: " + d["AdjT-rank"] + "<br>" +
