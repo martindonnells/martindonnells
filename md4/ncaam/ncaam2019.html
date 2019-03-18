@@ -340,11 +340,11 @@ dropDown.on("change", function() {
       }
       else{
         svg.selectAll(".dot")
-            .filter(function(d) {return selected != d["Conf"];})
+            .filter(function(d) {return selected != d["Conference"];})
             .attr("display", displayOthers);
             
         svg.selectAll(".dot")
-            .filter(function(d) {return selected == d["Conf"];})
+            .filter(function(d) {return selected == d["Conference"];})
             .attr("display", display);
       }
   });	
