@@ -1,4 +1,4 @@
-EM_Rank,Team_Name,Seed,Conference,Record,AdjEM,AdjO,AdjO-rank,AdjD,AdjD-rank,AdjT,AdjT-rank,Luck,Luck-rank,OppEM,OppEM-rank,OppO,OppO-rank,OppD,OppD-rank
+EM_Rank,Team_Name,Seed,Conf,Record,AdjEM,AdjO,AdjO-rank,AdjD,AdjD-rank,AdjT,AdjT-rank,Luck,Luck-rank,OppEM,OppEM-rank,OppO,OppO-rank,OppD,OppD-rank
 1, Virginia,1,ACC, 29-3,35.66,123.6,2,87.9,5,59.3,353,0.024,119,10.51,29,108.4,48,97.9,19
 2, Gonzaga,1,WCC, 30-3,32.79,125.1,1,92.3,16,69.8,70,0.008,160,3.38,83,106.2,76,102.8,102
 3, Duke,1,ACC, 29-5,31.99,120.1,6,88.1,6,72.2,18,0.018,137,13.25,7,110.4,4,97.2,11
