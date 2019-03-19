@@ -196,11 +196,11 @@ d3.csv("log2019.csv", function(data) {
 	      	"Seed: " + d["Seed"] + "<br>" +
 		"Conference: " + d["Conference"] + "<br>" +
 		"Overall Efficiency Rank: " + d["EM_Rank"] + "<br>" +
-		"Offense Efficiency Rank: " + d["AdjO-Rank"] + "<br>" +
+		"Offense Efficiency Rank: " + d["AdjO-rank"] + "<br>" +
 		"Defensive Efficiency Rank: " + d["AdjD-rank"] + "<br>" +
 		"Tempo Rank: " + d["AdjT-rank"] + "<br>" +
 		"Luck Rank: " + d["Luck-rank"] + "<br>" +
-		"Strength Of Schedule Rank: " + d["SOS-AdjEM-rank"];
+		"Opponent Rank: " + d["OppEM-rank"];
 		
 	      
              //  d[teamcity] + " " + d[team]+ "<br>" +
@@ -340,9 +340,9 @@ dropDown.on("change", function() {
             .attr("display", display);
       }
       else{
-     //   svg.selectAll(".dot")
-     //      .filter(function(d) {return selected != d["Conference"];})
-     //       .attr("display", displayOthers);
+        svg.selectAll(".dot")
+          .filter(function(d) {return selected != d["Conference"];})
+           .attr("display", displayOthers);
             
         svg.selectAll(".dot")
             .filter(function(d) {return selected == d["Conference"];})
