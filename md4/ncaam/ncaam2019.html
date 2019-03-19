@@ -140,7 +140,7 @@ var fname = "#FirstName";
     colorCat = "Conference";
 
     //Array of Teams to be used by dropdown selector
-
+    // MAKE SURE THE CONFERENCES IN CSV DO NOT HAVE LEADING SPACES
     confs = ["A10","ACC","AE","Amer","ASun","B10","B12","BE","BSky","BSth","BW","CAA","CUSA","Horz","Ivy","MAAC","MAC","MEAC","MVC","MWC","NEC","OVC","P12","Pat","SB","SC","SEC","Slnd","Sum","SWAC","WAC","WCC"]
 
 	    
@@ -329,7 +329,7 @@ d3.csv("log2019.csv", function(data) {
   }
 
 
-	
+// MAKE SURE THE CONFERENCES IN CSV DO NOT HAVE LEADING SPACES	
 dropDown.on("change", function() {
       var selected = this.value;
       displayOthers = this.checked ? "inline" : "none";
